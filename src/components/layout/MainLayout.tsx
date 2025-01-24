@@ -1,3 +1,7 @@
+import Home from "../../pages/home/home/Home";
+
 export default function MainLayout() {
-  return <div>MainLayout pages</div>;
+  return <div>
+    <Home/>
+  </div>;
 }

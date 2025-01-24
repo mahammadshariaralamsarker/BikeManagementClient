@@ -1,7 +1,3 @@
- 
-
 export default function MainLayout() {
-  return (
-    <div>MainLayout pages</div>
-  )
+  return <div>MainLayout pages</div>;
 }

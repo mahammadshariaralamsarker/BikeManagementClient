@@ -1,9 +1,10 @@
 import "./App.css";
+import MainLayout from "./components/layout/MainLayout";
 
 function App() {
   return (
     <div>
-      <h1>bike Store</h1>
+      <MainLayout/>
     </div>
   );
 }

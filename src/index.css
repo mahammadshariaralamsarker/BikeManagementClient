@@ -6,3 +6,6 @@
 .border{
   border: 2px solid red;
 }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

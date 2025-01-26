@@ -40,8 +40,9 @@ export default function LoginPage() {
   };
 
   return (
-    <div className=" bg-gray-500 ">
-      <Card className="   shadow-lg rounded-2xl" title="Login">
+    <div className=" flex justify-center mt-24">
+      <Card className="bg-gray-200  w-72  shadow-lg rounded-2xl" >
+        <h1  className="text-center text-2xl font-semibold">Login</h1>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           {/* Email Field */}
           <div>

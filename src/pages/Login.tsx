@@ -6,10 +6,11 @@ import { useLoginMutation } from "../redux/features/auth/authApi";
 import { useAppDispatch } from "../redux/hooks";
 import { setUser } from "../redux/features/auth/authSlice";
 import { verifyToken } from "../utils/verifyToken";
-import { JwtPayload } from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
   const {
     control,
     handleSubmit,
@@ -29,6 +30,7 @@ export default function LoginPage() {
     const user = verifyToken(token)
     console.log('user>', user._doc);
     dispatch(setUser({user:user._doc,token}))
+    navigate('/')
   };
 
   return (

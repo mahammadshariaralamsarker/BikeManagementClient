@@ -1,13 +1,11 @@
 import Banner from "../banner/Banner";
 import Faq from "../faq/Faq";
 import FeatureProducts from "../featureProducts/FeatureProducts";
-import Footer from "../footer/Footer";
-import Navbar from "../nav/Navbar";
+import Footer from "../footer/Footer"; 
 
 export default function Home() {
   return (
-    <div>
-      <Navbar />
+    <div> 
       <Banner/>
       <FeatureProducts/>
       <Faq/>

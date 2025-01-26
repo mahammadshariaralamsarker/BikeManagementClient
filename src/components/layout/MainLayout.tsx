@@ -3,6 +3,7 @@ import Home from "../../pages/home/home/Home";
 import { useAppDispatch } from "../../redux/hooks";
 import { logout } from "../../redux/features/auth/authSlice";
 import { useNavigate } from "react-router-dom";
+import Sidebar from "@/utils/sidebar";
 
 export default function MainLayout() {
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ export default function MainLayout() {
       <h1>customer</h1>
       <Button onClick={handleLogout}>Logout</Button>
       <Home />
+      <Sidebar/>
     </div>
   );
 }

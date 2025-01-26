@@ -1,19 +1,34 @@
- 
 import { useForm, Controller } from "react-hook-form";
 import { Card } from "antd";
 import { Input, Button, Alert } from "antd";
 import { MailOutlined, LockOutlined } from "@ant-design/icons";
+import { useLoginMutation } from "../redux/features/auth/authApi";
+import { useAppDispatch } from "../redux/hooks";
+import { setUser } from "../redux/features/auth/authSlice";
+import { verifyToken } from "../utils/verifyToken";
+import { JwtPayload } from "jwt-decode";
 
 export default function LoginPage() {
+  const dispatch = useAppDispatch()
   const {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      email: "customer@gmail.com",
+      password: "customer123",
+    },
+  });
+  const [login, { data, error }] = useLoginMutation();
+ 
 
-  const onSubmit = (data) => {
-    console.log("Form Data:", data);
-    // Handle login logic here
+  const onSubmit = async (data) => { 
+    const res = await login(data).unwrap();
+    const token = res.data.token
+    const user = verifyToken(token)
+    console.log('user>', user._doc);
+    dispatch(setUser({user:user._doc,token}))
   };
 
   return (
@@ -46,13 +61,21 @@ export default function LoginPage() {
               )}
             />
             {errors.email && (
-              <Alert message={errors.email.message} type="error" showIcon className="mt-2" />
+              <Alert
+                message={errors.email.message}
+                type="error"
+                showIcon
+                className="mt-2"
+              />
             )}
           </div>
 
           {/* Password Field */}
           <div>
-            <label htmlFor="password" className="text-sm font-medium block mb-1">
+            <label
+              htmlFor="password"
+              className="text-sm font-medium block mb-1"
+            >
               Password
             </label>
             <Controller
@@ -75,7 +98,12 @@ export default function LoginPage() {
               )}
             />
             {errors.password && (
-              <Alert message={errors.password.message} type="error" showIcon className="mt-2" />
+              <Alert
+                message={errors.password.message}
+                type="error"
+                showIcon
+                className="mt-2"
+              />
             )}
           </div>
 

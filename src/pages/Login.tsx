@@ -4,13 +4,13 @@ import { Input, Button, Alert } from "antd";
 import { MailOutlined, LockOutlined } from "@ant-design/icons";
 import { useLoginMutation } from "../redux/features/auth/authApi";
 import { useAppDispatch } from "../redux/hooks";
-import { setUser } from "../redux/features/auth/authSlice";
+import { setUser, TUser } from "../redux/features/auth/authSlice";
 import { verifyToken } from "../utils/verifyToken";
 import { useNavigate } from "react-router-dom";
-
+import { toast } from "sonner";
 export default function LoginPage() {
-  const dispatch = useAppDispatch()
-  const navigate = useNavigate()
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const {
     control,
     handleSubmit,
@@ -22,15 +22,21 @@ export default function LoginPage() {
     },
   });
   const [login, { data, error }] = useLoginMutation();
- 
 
-  const onSubmit = async (data) => { 
-    const res = await login(data).unwrap();
-    const token = res.data.token
-    const user = verifyToken(token)
-    console.log('user>', user._doc);
-    dispatch(setUser({user:user._doc,token}))
-    navigate('/')
+  const onSubmit = async (data:TUser) => {
+    const toastId = toast.loading("Loading data");
+    try {
+      const res = await login(data).unwrap();
+      const token = res.data.token;
+      const user = verifyToken(token) as TUser;
+      console.log("user>", user);
+      toast.success("login Successfull", { id: toastId, duration: 3000 });
+      dispatch(setUser({ user: user, token }));
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+      toast.error("something went wrong", { id: toastId, duration: 3000 });
+    }
   };
 
   return (

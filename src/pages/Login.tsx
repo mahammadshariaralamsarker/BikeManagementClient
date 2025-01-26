@@ -1,4 +1,4 @@
-import { useForm, Controller } from "react-hook-form";
+import { useForm, Controller, FieldValues } from "react-hook-form";
 import { Card } from "antd";
 import { Input, Button, Alert } from "antd";
 import { MailOutlined, LockOutlined } from "@ant-design/icons";
@@ -21,9 +21,9 @@ export default function LoginPage() {
       password: "customer123",
     },
   });
-  const [login, { data, error }] = useLoginMutation();
+  const [login] = useLoginMutation();
 
-  const onSubmit = async (data:TUser) => {
+  const onSubmit = async (data:FieldValues) => {
     const toastId = toast.loading("Loading data");
     try {
       const res = await login(data).unwrap();

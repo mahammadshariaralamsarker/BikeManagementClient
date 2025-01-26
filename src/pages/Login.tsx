@@ -1,36 +1,27 @@
 import { useForm, Controller, FieldValues } from "react-hook-form";
 import { Card } from "antd";
-import { Input, Button, Alert } from "antd";
+import { Input, Button } from "antd";
 import { MailOutlined, LockOutlined } from "@ant-design/icons";
 import { useLoginMutation } from "../redux/features/auth/authApi";
 import { useAppDispatch } from "../redux/hooks";
 import { setUser, TUser } from "../redux/features/auth/authSlice";
 import { verifyToken } from "../utils/verifyToken";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 export default function LoginPage() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    defaultValues: {
-      email: "customer@gmail.com",
-      password: "customer123",
-    },
-  });
+  const { control, handleSubmit } = useForm();
   const [login] = useLoginMutation();
 
-  const onSubmit = async (data:FieldValues) => {
+  const onSubmit = async (data: FieldValues) => {
     const toastId = toast.loading("Loading data");
     try {
       const res = await login(data).unwrap();
       const token = res.data.token;
       const user = verifyToken(token) as TUser;
       console.log("user>", user);
-      toast.success("login Successfull", { id: toastId, duration: 3000 });
+      toast.success("login Successful", { id: toastId, duration: 3000 });
       dispatch(setUser({ user: user, token }));
       navigate("/");
     } catch (err) {
@@ -41,9 +32,9 @@ export default function LoginPage() {
 
   return (
     <div className=" flex justify-center mt-24">
-      <Card className="bg-gray-200  w-72  shadow-lg rounded-2xl" >
-        <h1  className="text-center text-2xl font-semibold">Login</h1>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <Card className="bg-gray-200  w-72  shadow-lg rounded-2xl">
+        <h1 className="text-center text-2xl font-semibold">Login</h1>
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-">
           {/* Email Field */}
           <div>
             <label htmlFor="email" className="text-sm font-medium block mb-1">
@@ -52,13 +43,6 @@ export default function LoginPage() {
             <Controller
               name="email"
               control={control}
-              rules={{
-                required: "Email is required",
-                pattern: {
-                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-                  message: "Invalid email format",
-                },
-              }}
               render={({ field }) => (
                 <Input
                   id="email"
@@ -69,14 +53,6 @@ export default function LoginPage() {
                 />
               )}
             />
-            {errors.email && (
-              <Alert
-                message={errors.email.message}
-                type="error"
-                showIcon
-                className="mt-2"
-              />
-            )}
           </div>
 
           {/* Password Field */}
@@ -90,13 +66,6 @@ export default function LoginPage() {
             <Controller
               name="password"
               control={control}
-              rules={{
-                required: "Password is required",
-                minLength: {
-                  value: 6,
-                  message: "Password must be at least 6 characters",
-                },
-              }}
               render={({ field }) => (
                 <Input.Password
                   id="password"
@@ -106,14 +75,12 @@ export default function LoginPage() {
                 />
               )}
             />
-            {errors.password && (
-              <Alert
-                message={errors.password.message}
-                type="error"
-                showIcon
-                className="mt-2"
-              />
-            )}
+            <h1 className="p-2">
+              You didn't have a account{" "}
+              <NavLink to="/register" className="text-sky-600">
+                Register
+              </NavLink>
+            </h1>
           </div>
 
           {/* Submit Button */}

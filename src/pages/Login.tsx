@@ -40,7 +40,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className=" bg-gray-100 ">
+    <div className=" bg-gray-500 ">
       <Card className="   shadow-lg rounded-2xl" title="Login">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           {/* Email Field */}

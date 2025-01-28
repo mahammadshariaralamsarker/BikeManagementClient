@@ -1,23 +1,22 @@
-import AddProduct from '@/power/admin/addProduct';
-import AdminDashboard from '../pages/admin/AdminDashboard';
+import AddProduct from "@/power/admin/addProduct/addProduct"; 
+import ManageUser from "@/pages/admin/manageUser";
+import AllProduct from "@/power/admin/allProduct/AllProduct";
 
 export const adminPaths = [
   {
-    name: 'Dashboard',
-    path: 'dashboard',
-    element: <AdminDashboard />,
+    name: "Manage User",
+    path: "manageUser",
+    element: <ManageUser />,
+  },
+
+  {
+    name: "Add Product",
+    path: "Add-Product",
+    element: <AddProduct />,
   },
   {
-    name: 'User Management',
-    children: [
-      {
-        name: 'Add Product',
-        path: 'Add-Product',
-        element: <AddProduct />,
-      },
-       
-       
-       
-    ],
+    name: "All Product",
+    path: "All-Product",
+    element: <AllProduct />,
   },
 ];

@@ -11,13 +11,19 @@ import { toast } from "sonner";
 export default function LoginPage() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { control, handleSubmit } = useForm();
+  const { control, handleSubmit } = useForm({
+    defaultValues:{
+      email:'admin@gmail.com',
+      password:'admin123'
+    }
+  });
   const [login] = useLoginMutation();
 
   const onSubmit = async (data: FieldValues) => {
     const toastId = toast.loading("Loading data");
     try {
       const res = await login(data).unwrap();
+      console.log(res);
       const token = res.data.token;
       const user = verifyToken(token) as TUser;
       console.log("user>", user);

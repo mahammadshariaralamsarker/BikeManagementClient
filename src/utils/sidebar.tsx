@@ -1,72 +1,35 @@
-import React from "react";
-import {
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
-import { Layout, Menu,   theme } from "antd";
+import { Button, Layout } from "antd";
+import { Outlet } from "react-router-dom";
+import { useAppDispatch } from "@/redux/hooks";
+import { logout } from "@/redux/features/auth/authSlice";
+const { Header, Content } = Layout;
 
-const { Header, Content, Footer, Sider } = Layout;
+const MainLayout = () => {
+  const dispatch = useAppDispatch();
 
-const items = [UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined].map(
-  (icon, index) => ({
-    key: String(index + 1),
-    icon: React.createElement(icon),
-    label: `nav ${index + 1}`,
-  })
-);
-
-const Sidebar: React.FC = () => {
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
+  const handleLogout = () => {
+    dispatch(logout());
+  };
 
   return (
-    <Layout> 
-      <div
-        style={{
-          position: "fixed",
-          top: 10,
-          left: 10,
-          zIndex: 1000,
-        }}
-      > 
-      </div>
-
-      <Sider
-        breakpoint="lg"
-        collapsedWidth="0"
-        onBreakpoint={(broken) => {
-          console.log(broken);
-        }}
-        onCollapse={(collapsed, type) => {
-          console.log(collapsed, type);
-        }}
-      >
-        <div className="demo-logo-vertical" />
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={["4"]} items={items} />
-      </Sider>
-
+    <Layout style={{ height: "100%" }}>
       <Layout>
-        <Header style={{ padding: 0, background: colorBgContainer }} />
+        <Header>
+          <Button onClick={handleLogout}>Logout</Button>{" "}
+        </Header>
         <Content style={{ margin: "24px 16px 0" }}>
           <div
             style={{
               padding: 24,
               minHeight: 360,
-              background: colorBgContainer,
-              borderRadius: borderRadiusLG,
             }}
           >
-            Content
+            <Outlet />
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
-        </Footer>
       </Layout>
     </Layout>
   );
 };
 
-export default Sidebar;
+export default MainLayout;

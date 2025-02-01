@@ -20,7 +20,7 @@ const Sidebar = () => {
 
   useEffect(() => {
     if (!user || !user.role) {
-      navigate("/login");  
+      navigate("/login");
     }
   }, [user, navigate]);
 

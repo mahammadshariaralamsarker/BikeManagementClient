@@ -15,8 +15,8 @@ const authApi = baseApi.injectEndpoints({
         method: 'POST',
         body: userInfo,
       }),
-    }),
+    }), 
   }),
 });
 
-export const { useLoginMutation, useRegisterMutation } = authApi;
+export const { useLoginMutation, useRegisterMutation} = authApi;

@@ -1,19 +1,17 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
-import "./index.css";
-import { Provider } from "react-redux";
-import { persistor, store } from "./redux/store.ts";
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
 import { RouterProvider } from "react-router-dom";
-import router from "./routes/routes.tsx";
-import { PersistGate } from "redux-persist/integration/react";
-import {Toaster} from 'sonner'
+import route from "./routes/routes.tsx";
+import { Provider } from "react-redux";
+import { store } from "./redux/store.ts";
+import { Toaster } from "sonner";
+
 createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
+  <StrictMode>
+    <Toaster />
     <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <RouterProvider router={router} />
-      </PersistGate>
-        <Toaster/>
+      <RouterProvider router={route} />
     </Provider>
-  </React.StrictMode>
+  </StrictMode>
 );

@@ -1,12 +1,10 @@
-import "./App.css";
-import MainLayout from "./components/layout/MainLayout";
+
 
 function App() {
+
   return (
-    <div>
-      <MainLayout/>
-    </div>
-  );
+  <h3 className='text-3xl '>Hello World</h3>
+  )
 }
 
-export default App;
+export default App

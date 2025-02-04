@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-import BikeCard from "../../components/Bike/BikeCard";
+import React, { useState } from "react"; 
 import MyContainer from "../../components/Shared/MyContainer/MyContainer";
 import MySection from "../../components/Shared/MySection/MySection";
-import {
-  useGetAllBikeQuery,
-  useGetSpecificBikeFieldsQuery,
-} from "../../redux/features/Bike/Bike.api";
-import { TProduct, TQueryParams } from "../../types/Bike.types";
+ 
 import { BikeBrand, BikeCategory } from "../../constant/global.constant";
+import { TProduct, TQueryParams } from "../../types/bicycle.types";
+import { useGetAllBikeQuery, useGetSpecificBikeFieldsQuery } from "../../redux/features/bicycle/bicycle.api";
+import BikeCard from "../../components/Bicycle/BicycleCard";
 
 const Bikes = () => {
   const [params, setParams] = useState<TQueryParams[] | undefined>(undefined);

@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import MyContainer from "../MyContainer/MyContainer";
 import FooterHeading from "./FooterHeading";
-import FooterLink from "./FooterLink";
-import { IoIosBike } from "react-icons/io";
+import FooterLink from "./FooterLink";  
 
 const Footer = () => {
   return (
@@ -15,7 +14,7 @@ const Footer = () => {
                 className="font-orbitron text-primary uppercase font-bold flex justify-center gap-2 items-center"
                 to="/"
               >
-                <IoIosBike className="md:text-4xl text-base font-bold" />
+               
                 Cycle Haven
               </Link>
             </div>

@@ -2,9 +2,9 @@
 
 This is a Bike Haven Application designed to manage a Bike store. In this aplication enables users to purchase Nicycle, place orders, and Complete Payment Using Shurjo Pay
 
-## [ Live Site URL](https://Bike-haven.vercel.app)
+## [ Live Site URL] 
 
-Click here for the Client Live Site: [https://Bike-haven.vercel.app](https://Bike-haven.vercel.app)
+Click here for the Client Live Site: 
 
 ## 🚀 Features
 

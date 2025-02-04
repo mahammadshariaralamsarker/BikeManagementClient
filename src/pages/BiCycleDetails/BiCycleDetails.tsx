@@ -1,13 +1,13 @@
 import { useNavigate, useParams } from "react-router-dom";
 import MyContainer from "../../components/Shared/MyContainer/MyContainer";
-import MySection from "../../components/Shared/MySection/MySection";
-import { useGetSingleBikeQuery } from "../../redux/features/Bike/Bike.api";
+import MySection from "../../components/Shared/MySection/MySection"; 
 import Loader from "../../components/Loader/Loader";
-import { useAppDispatch } from "../../redux/hooks";
-import { TProduct } from "../../types/Bike.types";
+import { useAppDispatch } from "../../redux/hooks"; 
 import { toast } from "sonner";
 import { addToCart } from "../../redux/features/Checkout/Checkout.slice";
 import useGetRole from "../../hooks/useGetRole";
+import { useGetSingleBikeQuery } from "../../redux/features/bicycle/bicycle.api";
+import { TProduct } from "../../types/bicycle.types";
 
 const BikeDetails = () => {
   const { userRole } = useGetRole();

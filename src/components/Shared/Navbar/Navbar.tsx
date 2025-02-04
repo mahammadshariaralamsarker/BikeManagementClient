@@ -2,13 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import MyContainer from "../MyContainer/MyContainer";
 import NavBarLinks from "./NavBarLinks";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
-import { IoIosBike } from "react-icons/io";
-import useGetRole from "../../../hooks/useGetRole";
+import { Link } from "react-router-dom";  
 import { useLogedinUserGetQuery } from "../../../redux/features/auth/AuthApi";
 import Loader from "../../Loader/Loader";
 import { useAppDispatch } from "../../../redux/hooks";
 import { logoutUser } from "../../../redux/features/auth/auth.slice";
+import useGetRole from "../../../hooks/useGetRole";
 
 const Navbar = () => {
   const [dashboardMenuOpen, setDashboardMenuOpen] = useState(false);
@@ -85,7 +84,7 @@ const Navbar = () => {
               className=" text-primary font-orbitron font-bold flex items-center uppercase"
               to="/"
             >
-              <IoIosBike className="md:text-4xl text-base font-bold" />
+           
               Cycle Haven
             </Link>
           </div>
@@ -230,87 +229,7 @@ const Navbar = () => {
                 </AnimatePresence>
               </div>
             )}
-            {/* <div className="hidden md:relative md:block">
-              <button
-                type="button"
-                onClick={() => setDashboardMenuOpen(!dashboardMenuOpen)}
-                className="overflow-hidden rounded-full border border-gray-300 shadow-inner"
-              >
-                <span className="sr-only">Toggle dashboard menu</span>
-
-                <img
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt=""
-                  className="size-10 object-cover"
-                />
-              </button>
-
-              <AnimatePresence>
-                {dashboardMenuOpen && (
-                  <motion.div
-                    ref={dashboardMenuRef}
-                    initial={{ opacity: 0, scale: 0.8, y: -10 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.8, y: -10 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="absolute end-0 z-10 mt-0.5 w-56 divide-y divide-gray-100 rounded-md border border-gray-100 bg-white shadow-lg"
-                    role="menu"
-                  >
-                    <div className="p-2">
-                      <Link
-                        to="/dashboard"
-                        className="block rounded-lg px-4 py-2 text-sm text-secondary hover:bg-primary hover:text-white"
-                        role="menuitem"
-                      >
-                        Dashboard
-                      </Link>
-
-                      <Link
-                        to="dashboard/my-orders"
-                        className="block rounded-lg px-4 py-2 text-sm text-secondary hover:bg-primary hover:text-white"
-                        role="menuitem"
-                      >
-                        My Orders
-                      </Link>
-
-                      <Link
-                        to="dashboard/profile"
-                        className="block rounded-lg px-4 py-2 text-sm text-secondary hover:bg-primary hover:text-white"
-                        role="menuitem"
-                      >
-                        Profile settings
-                      </Link>
-                    </div>
-
-                    <div className="p-2">
-                      <form method="POST" action="#">
-                        <button
-                          type="submit"
-                          className="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-sm text-secondary hover:bg-primary hover:text-white"
-                          role="menuitem"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth="1.5"
-                            stroke="currentColor"
-                            className="size-4"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
-                            />
-                          </svg>
-                          Logout
-                        </button>
-                      </form>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div> */}
+       
 
             <div className="block md:hidden">
               <button

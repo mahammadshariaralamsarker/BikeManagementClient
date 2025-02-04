@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
-import FeaturesBikeItem from "../../components/Home/FeaturesBikeItem";
+import { Link } from "react-router-dom"; 
 import MyContainer from "../../components/Shared/MyContainer/MyContainer";
 import MySection from "../../components/Shared/MySection/MySection";
 import SectionHeading from "../../components/Shared/SectionHeading/SectionHeading";
+import FeaturesBikeItem from "../../components/Home/FeaturesBicycleItem";
 
 const Features = () => {
   const featuresItem = [

@@ -7,12 +7,9 @@ import MyButton from "../../../../components/Shared/MyButton/MyButton";
 import uploadImage from "../../../../utils/uploadImageToCloudinary";
 import { toast } from "sonner";
 import { BikeBrand, BikeCategory } from "../../../../constant/global.constant";
-import {
-  useAddBikeMutation,
-  useGetAllBikeQuery,
-  useGetSpecificBikeFieldsQuery,
-} from "../../../../redux/features/Bike/Bike.api";
+ 
 import Loader from "../../../../components/Loader/Loader";
+import { useAddBikeMutation, useGetAllBikeQuery, useGetSpecificBikeFieldsQuery } from "../../../../redux/features/bicycle/bicycle.api";
 
 const ProductManage = () => {
   const [isOpen, setIsOpen] = useState(false);

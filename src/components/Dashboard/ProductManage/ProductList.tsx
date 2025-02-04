@@ -2,20 +2,15 @@
 import TableTd from "../../Shared/Table/TableTd";
 import { FaSquarePen } from "react-icons/fa6";
 import { RiDeleteBin5Fill } from "react-icons/ri";
-import {
-  useDeleteBikeMutation,
-  useGetAllBikeQuery,
-  useGetSingleBikeQuery,
-  useGetSpecificBikeFieldsQuery,
-  useUpdateBikeMutation,
-} from "../../../redux/features/Bike/Bike.api";
-import { TProduct } from "../../../types/Bike.types";
+ 
 import { toast } from "sonner";
 import { ChangeEvent, useState } from "react";
 import uploadImage from "../../../utils/uploadImageToCloudinary";
 import MyModal from "../../Modals/MyModal";
 import { BikeBrand, BikeCategory } from "../../../constant/global.constant";
 import MyButton from "../../Shared/MyButton/MyButton";
+import { useDeleteBikeMutation, useGetAllBikeQuery, useGetSingleBikeQuery, useGetSpecificBikeFieldsQuery, useUpdateBikeMutation } from "../../../redux/features/bicycle/bicycle.api";
+import { TProduct } from "../../../types/bicycle.types";
 
 const ProductLisItem = () => {
   const { data: products } = useGetAllBikeQuery(undefined);

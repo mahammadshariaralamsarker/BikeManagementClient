@@ -3,9 +3,7 @@ import { AiOutlineBars } from "react-icons/ai";
 import { FcSettings } from "react-icons/fc";
 import { GrLogout } from "react-icons/gr";
 import { NavLink, useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { IoIosBike } from "react-icons/io";
-import { FaUsers } from "react-icons/fa";
+import { Link } from "react-router-dom";  
 import { FaProductHunt } from "react-icons/fa";
 import { MdShoppingCartCheckout } from "react-icons/md";
 import useGetRole from "../../../hooks/useGetRole";
@@ -33,7 +31,7 @@ const Sidebar = () => {
         <div>
           <div className="block cursor-pointer p-4 font-bold">
             <div className="flex justify-center items-center cursor-pointer text-primary">
-              <IoIosBike className="md:text-4xl text-base font-bold" />
+             
               <Link
                 to="/"
                 className="md:text-2xl text-base font-bold font-orbitron uppercase"
@@ -62,7 +60,7 @@ const Sidebar = () => {
           <div>
             <div className="w-full hidden bg-primary/10 shadow-md md:flex px-4 py-2 rounded-lg justify-center items-center  mx-auto">
               <div className="flex justify-center  items-center cursor-pointer text-primary">
-                <IoIosBike className="md:text-4xl text-base font-bold" />
+               
                 <Link
                   to="/"
                   className="md:text-2xl text-base font-bold font-orbitron uppercase"
@@ -92,7 +90,7 @@ const Sidebar = () => {
                         }`
                       }
                     >
-                      <FaUsers className="w-5 h-5" />
+                     
 
                       <span className="mx-4 font-medium">Manage Users</span>
                     </NavLink>

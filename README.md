@@ -46,6 +46,8 @@ VITE_REACT_APP_CLOUDINARY_API_KEY=<your_Cloudinary_api_key>
 VITE_REACT_APP_CLOUDINARY_API_SECRET=<your_Cloudinary_api_secret>
 VITE_REACT_APP_CLOUDINARY_UPLOAD_PRESET=<your_Cloudinary_upload_secret>
 ```
+admin gmail:admin@gmail.com
+admin password : admin123
 
 NB: If you want to change API_BASE_URL please go to redux folder > api > baseApi.ts then You can Change it.
 

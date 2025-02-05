@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import MyContainer from "../MyContainer/MyContainer";
 import FooterHeading from "./FooterHeading";
-import FooterLink from "./FooterLink";  
+import FooterLink from "./FooterLink";
 
 const Footer = () => {
   return (
@@ -11,11 +11,10 @@ const Footer = () => {
           <div className="sm:flex sm:items-center sm:justify-between">
             <div className="">
               <Link
-                className="font-orbitron text-primary uppercase font-bold flex justify-center gap-2 items-center"
+                className="font-orbitron text-red-400 uppercase font-bold flex justify-center gap-2 items-center"
                 to="/"
               >
-               
-                Cycle Haven
+                Bike Riders
               </Link>
             </div>
 
@@ -25,7 +24,7 @@ const Footer = () => {
                   href="#"
                   rel="noreferrer"
                   target="_blank"
-                  className="text-white transition hover:text-primary"
+                  className="text-white transition hover:text-red-400"
                 >
                   <span className="sr-only">Facebook</span>
 
@@ -49,7 +48,7 @@ const Footer = () => {
                   href="#"
                   rel="noreferrer"
                   target="_blank"
-                  className="text-white transition hover:text-primary"
+                  className="text-white transition hover:text-red-400"
                 >
                   <span className="sr-only">Instagram</span>
 
@@ -73,7 +72,7 @@ const Footer = () => {
                   href="#"
                   rel="noreferrer"
                   target="_blank"
-                  className="text-white transition hover:text-primary"
+                  className="text-white transition hover:text-red-400"
                 >
                   <span className="sr-only">Twitter</span>
 

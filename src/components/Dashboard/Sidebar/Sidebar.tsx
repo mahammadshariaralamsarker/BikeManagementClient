@@ -3,7 +3,7 @@ import { AiOutlineBars } from "react-icons/ai";
 import { FcSettings } from "react-icons/fc";
 import { GrLogout } from "react-icons/gr";
 import { NavLink, useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";  
+import { Link } from "react-router-dom";
 import { FaProductHunt } from "react-icons/fa";
 import { MdShoppingCartCheckout } from "react-icons/md";
 import useGetRole from "../../../hooks/useGetRole";
@@ -30,8 +30,7 @@ const Sidebar = () => {
       <div className="bg-gray-100 text-gray-800 flex justify-between md:hidden z-[50] relative">
         <div>
           <div className="block cursor-pointer p-4 font-bold">
-            <div className="flex justify-center items-center cursor-pointer text-primary">
-             
+            <div className="flex justify-center items-center cursor-pointer text-red-400">
               <Link
                 to="/"
                 className="md:text-2xl text-base font-bold font-orbitron uppercase"
@@ -59,8 +58,7 @@ const Sidebar = () => {
         <div>
           <div>
             <div className="w-full hidden bg-primary/10 shadow-md md:flex px-4 py-2 rounded-lg justify-center items-center  mx-auto">
-              <div className="flex justify-center  items-center cursor-pointer text-primary">
-               
+              <div className="flex justify-center  items-center cursor-pointer text-red-400">
                 <Link
                   to="/"
                   className="md:text-2xl text-base font-bold font-orbitron uppercase"
@@ -90,8 +88,6 @@ const Sidebar = () => {
                         }`
                       }
                     >
-                     
-
                       <span className="mx-4 font-medium">Manage Users</span>
                     </NavLink>
                     <NavLink

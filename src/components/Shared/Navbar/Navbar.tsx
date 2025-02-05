@@ -8,7 +8,7 @@ import Loader from "../../Loader/Loader";
 import { useAppDispatch } from "../../../redux/hooks";
 import { logoutUser } from "../../../redux/features/auth/auth.slice";
 import useGetRole from "../../../hooks/useGetRole";
-
+import profile from "../../../assets/profile.jpg"
 const Navbar = () => {
   const [dashboardMenuOpen, setDashboardMenuOpen] = useState(false);
   const dashboardMenuRef = useRef<HTMLDivElement | null>(null);
@@ -81,11 +81,11 @@ const Navbar = () => {
         <div className="flex h-16 items-center justify-between">
           <div className="flex-1 md:flex md:items-center md:gap-12">
             <Link
-              className=" text-primary font-orbitron font-bold flex items-center uppercase"
+              className=" text-red-400 font-orbitron font-bold flex items-center uppercase"
               to="/"
             >
            
-              Cycle Haven
+              Bike Riders
             </Link>
           </div>
 
@@ -151,8 +151,8 @@ const Navbar = () => {
                     />
                   ) : (
                     <img
-                      src="https://res.cloudinary.com/dhfvwgwty/image/upload/v1738418586/sadi_avatr_am7po6.jpg"
-                      alt=""
+                      src={profile}
+                      alt="profile "
                       className="size-10 object-cover"
                     />
                   )}

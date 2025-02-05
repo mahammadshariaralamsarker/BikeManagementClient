@@ -251,7 +251,7 @@ const ProductLisItem = () => {
                 htmlFor="Image"
                 className="block text-sm font-medium text-secondary"
               >
-                Cycle Image
+                Bike Image
               </label>
 
               <input

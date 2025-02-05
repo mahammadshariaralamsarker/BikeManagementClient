@@ -17,7 +17,7 @@ const FeaturesBikeItem = ({ item }: TFeaturesProps) => {
       />
 
       <div className="relative p-4 sm:p-6 lg:p-8">
-        <p className="text-sm font-medium uppercase tracking-widest text-primary">
+        <p className="text-sm font-medium uppercase tracking-widest text-red-400">
           {item.category}
         </p>
 

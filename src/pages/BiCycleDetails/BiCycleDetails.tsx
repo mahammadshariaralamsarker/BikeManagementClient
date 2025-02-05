@@ -1,8 +1,8 @@
 import { useNavigate, useParams } from "react-router-dom";
 import MyContainer from "../../components/Shared/MyContainer/MyContainer";
-import MySection from "../../components/Shared/MySection/MySection"; 
+import MySection from "../../components/Shared/MySection/MySection";
 import Loader from "../../components/Loader/Loader";
-import { useAppDispatch } from "../../redux/hooks"; 
+import { useAppDispatch } from "../../redux/hooks";
 import { toast } from "sonner";
 import { addToCart } from "../../redux/features/Checkout/Checkout.slice";
 import useGetRole from "../../hooks/useGetRole";
@@ -68,7 +68,7 @@ const BikeDetails = () => {
                       <span className="font-inter font-normal text-sm text-gray-700">
                         Brand:
                       </span>{" "}
-                      <span className="text-secondary text-sm font-inter font-semibold hover:text-primary">
+                      <span className="text-secondary text-sm font-inter font-semibold hover:text-red-400">
                         {singleBike?.data?.brand}
                       </span>
                     </p>
@@ -76,7 +76,7 @@ const BikeDetails = () => {
                       <span className="font-inter font-normal text-sm text-gray-700">
                         Model:
                       </span>{" "}
-                      <span className="text-secondary text-sm font-inter font-semibold hover:text-primary">
+                      <span className="text-secondary text-sm font-inter font-semibold hover:text-red-400">
                         {singleBike?.data?.model}
                       </span>
                     </p>
@@ -84,7 +84,7 @@ const BikeDetails = () => {
                       <span className="font-inter font-normal text-sm text-gray-700">
                         Category:
                       </span>{" "}
-                      <span className="text-secondary text-sm font-inter font-semibold hover:text-primary">
+                      <span className="text-secondary text-sm font-inter font-semibold hover:text-red-400">
                         {singleBike?.data?.category}
                       </span>
                     </p>
@@ -98,7 +98,7 @@ const BikeDetails = () => {
                           Out Of Stock
                         </span>
                       ) : (
-                        <span className=" text-sm font-inter font-semibold text-primary">
+                        <span className=" text-sm font-inter font-semibold text-red-400">
                           In Stock
                         </span>
                       )}

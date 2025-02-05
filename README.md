@@ -38,7 +38,7 @@ Follow these steps to set up the project locally:
 npm install
 ```
 
-3. Create a .env file in the root directory and configure the following environment variables:
+3. Create a .env file in the root directory and configure the following environment variables: 
 
 ```bash
 VITE_REACT_APP_CLOUDINARY_CLOUD_NAME=<your_cloudinary_cloud_name>

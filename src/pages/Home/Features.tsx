@@ -3,6 +3,12 @@ import MyContainer from "../../components/Shared/MyContainer/MyContainer";
 import MySection from "../../components/Shared/MySection/MySection";
 import SectionHeading from "../../components/Shared/SectionHeading/SectionHeading";
 import FeaturesBikeItem from "../../components/Home/FeaturesBicycleItem";
+import bike1 from '../../assets/pexels-cottonbro-5803348.jpg'
+import bike2 from '../../assets/pexels-gijs-coolen-1325695-2549941.jpg'
+import bike3 from '../../assets/pexels-labskiii-14136895.jpg'
+import bike4 from '../../assets/pexels-moonlightshotz-11059022.jpg'
+import bike5 from '../../assets/pexels-ravi-roshan-2875998-16804219.jpg'
+import bike6 from '../../assets/pexels-ravi-roshan-2875998-16804219.jpg'
 
 const Features = () => {
   const featuresItem = [
@@ -12,7 +18,7 @@ const Features = () => {
       description:
         "A rugged mountain bike designed for tough trails and rough terrains.",
       image:
-        "https://res.cloudinary.com/djlpoyqau/image/upload/v1738607721/sadi4_xooxz8.jpg",
+      bike1,
       category: "Mountain",
     },
     {
@@ -21,7 +27,7 @@ const Features = () => {
       description:
         "A lightweight road bike optimized for speed and long-distance rides.",
       image:
-        "https://res.cloudinary.com/djlpoyqau/image/upload/v1738607721/sadi2_ym4pye.jpg",
+      bike2,
       category: "Mountain",
     },
     {
@@ -30,7 +36,7 @@ const Features = () => {
       description:
         "A sleek, efficient bike for city commuting, offering comfort and durability.",
       image:
-        "https://res.cloudinary.com/djlpoyqau/image/upload/v1738607721/sadi3_hxk6yb.jpg",
+      bike3,
       category: "Road",
     },
     {
@@ -39,7 +45,7 @@ const Features = () => {
       description:
         "Combines the best of road and mountain bikes for versatile performance.",
       image:
-        "https://res.cloudinary.com/djlpoyqau/image/upload/v1738607720/sadi1_f1bohs.jpg",
+      bike4,
       category: "Hybrid",
     },
     {
@@ -48,7 +54,7 @@ const Features = () => {
       description:
         "A compact folding bike perfect for easy storage and portability.",
       image:
-        "https://res.cloudinary.com/djlpoyqau/image/upload/v1738607720/sadi6_am7f84.jpg",
+      bike5,
       category: "BMX",
     },
     {
@@ -57,7 +63,7 @@ const Features = () => {
       description:
         "A high-performance e-bike that offers a smooth, powerful ride with electric assistance.",
       image:
-        "https://res.cloudinary.com/djlpoyqau/image/upload/v1738607725/sadi5_njptn5.jpg",
+      bike6,
       category: "Electric",
     },
   ];

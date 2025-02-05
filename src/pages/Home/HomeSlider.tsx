@@ -1,34 +1,33 @@
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-
+import bike1 from "../../assets/harley-davidson-eeTJKC_wz34-unsplash.jpg";
+import bike2 from "../../assets/pexels-abhinav-9460781.jpg";
+import bike3 from "../../assets/pexels-cottonbro-5803348.jpg";
 export function HomeSlider() {
   const [emblaRef] = useEmblaCarousel({ loop: false }, [Autoplay()]);
   const sliderItems = [
     {
       id: 1,
-      image:
-        "https://res.cloudinary.com/dhfvwgwty/image/upload/v1738338835/sadi1_aqo7rn.jpg",
-      heading: "🚴 Save Big on Mountain Bikes!",
+      image: bike1,
+      heading: " Save Big on Mountain Bikes!",
       description:
-        "Get the best mountain bikes with <span class='text-primary font-bold'>30% OFF</span>!",
+        "Get the best mountain bikes with <span class='text-red-400 font-bold'>30% OFF</span>!",
       buttonText: "Explore Now",
     },
     {
       id: 2,
-      image:
-        "https://res.cloudinary.com/dhfvwgwty/image/upload/v1738338834/sadi2_cvlc2w.jpg",
+      image: bike2,
       heading: "🔥 Limited-Time Offer: 40% OFF!",
       description:
-        "Shop now and save <span class='text-primary font-bold'>40% OFF</span>!",
+        "Shop now and save <span class='text-red-400 font-bold'>40% OFF</span>!",
       buttonText: "Grab Deal",
     },
     {
       id: 3,
-      image:
-        "https://res.cloudinary.com/dhfvwgwty/image/upload/v1738338840/sadi3_pd4pji.jpg",
-      heading: "🚲 Ride in Style with 50% OFF!",
+      image: bike3,
+      heading: "Ride in Style with 50% OFF!",
       description:
-        "Get <span class='text-primary font-bold'>50% OFF</span> on all bikes!",
+        "Get <span class='text-red-400 font-bold'>50% OFF</span> on all bikes!",
       buttonText: "Shop Now",
     },
   ];

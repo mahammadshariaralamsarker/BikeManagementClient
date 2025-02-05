@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { TProduct } from "../../types/Bike.types";
+import { TProduct } from "../../types/bicycle.types";
 
 const BikeCard = ({ item }: { item: TProduct }) => {
   return (
@@ -16,9 +16,6 @@ const BikeCard = ({ item }: { item: TProduct }) => {
           Out of Stock
         </span>
       )}
-      {/* <span className="absolute -right-px -top-px rounded-bl-3xl rounded-tr-3xl bg-rose-600 px-4 py-2 font-medium uppercase text-xs tracking-widest text-white">
-        Out of Stock
-      </span> */}
 
       <img
         src={item?.image}
@@ -34,7 +31,7 @@ const BikeCard = ({ item }: { item: TProduct }) => {
               {item?.category}
             </p>
           </div>
-          <h2 className="font-orbitron font-bold text-lg md:text-xl uppercase mt-2 text-secondary hover:text-primary">
+          <h2 className="font-orbitron font-bold text-lg md:text-xl uppercase mt-2 text-secondary hover:text-red-400">
             {item?.name}
           </h2>
         </div>
@@ -45,7 +42,7 @@ const BikeCard = ({ item }: { item: TProduct }) => {
               <span className="font-inter font-normal text-sm text-gray-700">
                 Brand:
               </span>{" "}
-              <span className="text-secondary text-sm font-inter font-semibold hover:text-primary">
+              <span className="text-secondary text-sm font-inter font-semibold hover:text-red-400">
                 {item?.brand}
               </span>
             </p>
@@ -53,7 +50,7 @@ const BikeCard = ({ item }: { item: TProduct }) => {
               <span className="font-inter font-normal text-sm text-gray-700">
                 Model:
               </span>{" "}
-              <span className="text-secondary text-sm font-inter font-semibold hover:text-primary">
+              <span className="text-secondary text-sm font-inter font-semibold hover:text-red-400">
                 {item?.model}
               </span>
             </p>
@@ -65,7 +62,7 @@ const BikeCard = ({ item }: { item: TProduct }) => {
         </div>
 
         <Link to={`/Bike/${item?._id}`}>
-          <button className="font-orbitron w-full mt-4 block rounded-md border border-primary bg-primary px-5 py-3 text-sm font-medium uppercase tracking-widest text-white transition-colors hover:bg-white hover:text-primary">
+          <button className="font-orbitron w-full mt-4 block rounded-md border border-primary bg-primary px-5 py-3 text-sm font-medium uppercase tracking-widest text-white transition-colors hover:bg-white hover:text-red-400">
             View Details
           </button>
         </Link>

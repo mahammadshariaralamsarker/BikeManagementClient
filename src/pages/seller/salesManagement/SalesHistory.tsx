@@ -34,7 +34,7 @@ const SalesHistory = () => {
   }
 
   const handleGetInvoice = (id: string) => {
-    navigate(`/seller/get-invoice/${id}`);
+    navigate(`/seller/dashboard/get-invoice/${id}`);
   };
 
   return (

@@ -21,8 +21,7 @@ const AddBike = () => {
   const { refetch } = useGetAllBikesQuery(undefined);
 
   const onSubmit = async (data: FieldValues) => {
-    const toastId = toast.loading("Adding Bike to Database");
-    console.log('data',data);
+    const toastId = toast.loading("Adding Bike to Database"); 
     try {
       const formData = new FormData();
 
@@ -40,8 +39,7 @@ const AddBike = () => {
         type: data.type,
         size: data.size,
         color: data.color,
-      };
-      console.log(bikeInfo);
+      }; 
 
       formData.append("data", JSON.stringify(bikeInfo));
       await addBike(formData).unwrap();

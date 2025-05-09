@@ -15,7 +15,7 @@ const BikeInput = ({
   name,
   label,
   disabled,
-  placeholder,
+  placeholder, 
 }: TInputProps) => {
   return (
     <div>
@@ -33,7 +33,7 @@ const BikeInput = ({
               id={name}
               size="large"
               placeholder={placeholder}
-              disabled={disabled}
+              disabled={disabled}  
             />
           </Form.Item>
         )}

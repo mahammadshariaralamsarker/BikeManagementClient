@@ -17,98 +17,87 @@ const RequestedMaintenance = () => {
     isLoading,
     isError,
   } = useGetMyRequestedMaintenanceQuery(undefined);
-  console.log(maintenanceData);
+
   if (isLoading) {
     return <Loading />;
   }
 
   if (isError) {
-    return <div>Error loading Maintenance. Please try again later.</div>;
+    return <div className="text-center text-red-500 p-5">Error loading Maintenance. Please try again later.</div>;
   }
 
   return (
-    <div className="lg:p-10 md:p-8 p-5">
-      <h1 className="text-2xl font-bold text-center text-green-500 mb-7">
+    <div className="p-4 sm:p-6 md:p-8 lg:p-10">
+      <h1 className="text-xl sm:text-2xl font-bold text-center text-green-500 mb-6">
         Requested For Maintenance
       </h1>
-      <Table className="lg:px-10 md:px-5 px-2 pb-10 mx-auto ">
-        <TableCaption>
-          {maintenanceData?.data?.length === 0 ? (
-            <div className="text-center py-10 text-xl font-semibold ">
-              No Requested Maintenance...
-            </div>
-          ) : (
-            <div className="text-md font-semibold my-10">
-              {" "}
-              A list of Requested Maintenance.
-            </div>
-          )}
-        </TableCaption>
-        <TableHeader className="bg-green-400">
-          <TableRow className="">
-            <TableHead className="text-white">BikeId</TableHead>
-            <TableHead className="text-white">Buyer Name</TableHead>
-            <TableHead className=" text-start text-white">
-              Last Service
-            </TableHead>
-            <TableHead className="text-start text-white">
-              Next Service
-            </TableHead>
-            <TableHead className="text-start  text-white">
-              Service Details
-            </TableHead>
-            <TableHead className="  text-white">Notes</TableHead>
-            <TableHead className=" text-white">Status</TableHead>
-            <TableHead className=" text-white">Discount %</TableHead>
-            <TableHead className=" text-white">Total</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {maintenanceData &&
-            maintenanceData?.data?.map((maintenance: any) => (
+
+      <div className="overflow-x-auto">
+        <Table className="min-w-[800px]">
+          <TableCaption>
+            {maintenanceData?.data?.length === 0 ? (
+              <div className="text-center py-10 text-lg font-semibold">
+                No Requested Maintenance...
+              </div>
+            ) : (
+              <div className="text-md font-semibold my-6">
+                A list of Requested Maintenance.
+              </div>
+            )}
+          </TableCaption>
+          <TableHeader className="bg-green-400">
+            <TableRow>
+              <TableHead className="text-white">BikeId</TableHead>
+              <TableHead className="text-white text-start">Last Service</TableHead>
+              <TableHead className="text-white text-start">Next Service</TableHead>
+              <TableHead className="text-white text-start">Service Details</TableHead>
+              <TableHead className="text-white text-start">Notes</TableHead>
+              <TableHead className="text-white text-center">Status</TableHead>
+              <TableHead className="text-white text-right">Discount %</TableHead>
+              <TableHead className="text-white text-right">Total</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {maintenanceData?.data?.map((maintenance: any) => (
               <TableRow
                 key={maintenance._id}
-                className="bg-purple-100  hover:bg-white border-b border-green-200"
+                className="bg-purple-100 hover:bg-white border-b border-green-200"
               >
-                <TableCell className="font-medium">
-                  {maintenance.bikeId.bikeId && maintenance.bikeId.bikeId}
-                </TableCell>
                 <TableCell className="font-medium">
                   {maintenance.buyerId.name}
                 </TableCell>
                 <TableCell>{maintenance.lastServicingDate}</TableCell>
                 <TableCell>{maintenance.nextServicingDate}</TableCell>
                 <TableCell className="text-start">
-                  {maintenance.serviceDetails.map((item: string) => (
-                    <ul>
-                      <li className="list-item">{item}</li>
-                    </ul>
-                  ))}
+                  <ul className="list-disc pl-4">
+                    {maintenance.serviceDetails.map((item: string, idx: number) => (
+                      <li key={idx}>{item}</li>
+                    ))}
+                  </ul>
                 </TableCell>
-                <TableCell className="">
-                  {maintenance.notes ? <p>{maintenance.notes}</p> : "---"}
-                </TableCell>
-                <TableCell className="">
+                <TableCell>{maintenance.notes || "---"}</TableCell>
+                <TableCell className="text-center">
                   {maintenance.isPending ? (
-                    <p className="border border-green-300 bg-yellow-200 hover:bg-slate-300 rounded-lg p-1 text-center  ">
+                    <p className="border border-green-300 bg-yellow-200 hover:bg-slate-300 rounded-lg px-2 py-1">
                       Pending
                     </p>
                   ) : (
-                    <p className="border border-green-300 bg-green-300 hover:bg-slate-300 rounded-lg p-1 text-center  ">
+                    <p className="border border-green-300 bg-green-300 hover:bg-slate-300 rounded-lg px-2 py-1">
                       Accepted
                     </p>
                   )}
                 </TableCell>
                 <TableCell className="text-right">
-                  {maintenance?.discount?.percentage} %
+                  {maintenance?.discount?.percentage ?? 0} %
                 </TableCell>
                 <TableCell className="text-right">
-                  {maintenance?.discount?.fixedAmount}
+                  {maintenance?.discount?.fixedAmount ?? 0}
                 </TableCell>
               </TableRow>
             ))}
-        </TableBody>
-      </Table>
+          </TableBody>
+        </Table>
+      </div>
     </div>
   );
 };

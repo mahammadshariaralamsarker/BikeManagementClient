@@ -36,7 +36,7 @@ const Bikes = () => {
       <p className="text-center mb-8">
         Check out the latest bikes in our collection
       </p>
-      <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-center items-stretch lg:gap-5 md:gap-4 gap-3">
+      <div className=" grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 justify-center items-stretch lg:gap-5 md:gap-4 gap-3">
         {bikes?.data?.slice(0, 4).map((bike: TBike) => (
           <BikeCardForL key={bike?._id} {...bike} />
         ))}

@@ -51,7 +51,7 @@ const AddBike = () => {
         id: toastId,
         duration: 3000,
       });
-      navigate(`/seller/dashboard`);
+      navigate(`/seller/dashboard/all-bikes`);
     } catch (err) {
       toast.error("Failed to add bike. Something went wrong", {
         id: toastId,

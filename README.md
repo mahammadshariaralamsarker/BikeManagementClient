@@ -1,64 +1,156 @@
-# 🚲 Bike Haven
+# Bike Management System
 
-This is a Bike Haven Application designed to manage a Bike store. In this aplication enables users to purchase Nicycle, place orders, and Complete Payment Using Shurjo Pay
+## Project Overview
 
-## [ Live Site URL] 
+Welcome to the Bike Management System, a comprehensive solution designed to efficiently manage bike inventory, track sales, and analyze sales history. This system incorporates essential features such as authentication, CRUD operations, state management, real-time UI updates, and advanced bike filtering.
 
-Click here for the Client Live Site: 
+## Table of Contents
 
-## 🚀 Features
+- [Live Demo](#live-link)
+- [Features](#features)
+- [Authentication](#authentication)
+- [Bike Management](#bike-management)
+  - [CRUD Operations](#crud-operations)
+  - [Filtering System](#filtering-system)
+- [Maintenance and Servicing](#maintenance-and-servicing)
+- [Sales Management](#sales-management)
+  - [Selling Products](#selling-products)
+  - [Sales History](#sales-history)
+- [Bike Filtering](#bike-filtering)
+- [User Interface Features](#user-interface-features)
+- [State Management](#state-management)
+- [Invoice Printing](#invoice-printing)
+- [Bulk Delete Product Options](#bulk-delete-product-options)
+- [Duplicate & Edit Feature](#duplicate--edit-feature)
+- [Technical Requirements](#technical-requirements)
+- [Getting Started](#getting-started)
+- [Contribution Guidelines](#contribution-guidelines)
 
-1. **Order Bikes:** Users can place orders with Product Details Like Quantity, Total Price, and User Info.
-2. **Order Update:** User Can Update Cart Product like Quantity and User can Order Multiple Products.
-3. **Payment System:** User Can pay Using ShurjoPay Payment Gateway.
-4. **Profile Manage:** User Can Update Personal her Information.
+## Deployment
 
-## 🧑‍💻 Usegaes Technologies
+Live Link : [Bike Management System](https://bike-management-client-alpha.vercel.app)
 
-- React Js
-- Tailwind CSS
-- Typescript
-- Redux Toolkit
-- Framer Motion"
+## Login Credentials
 
-## 🛠️ Installation and Setup
+- **Seller Login Credentials**
 
-Follow these steps to set up the project locally:
+  - Email: mobassherpautex@gmail.com
+  - Password: Mobassher123
 
-1. Clone the repository:
+- **Buyer Login Credentials**
+  - Email: raiyan@gmail.com
+  - Password: Raiyan123
 
-   ```bash
-   git clone <repository-url>
-   cd <project-folder>
-   ```
+## Features
 
-2.Install the required dependencies:
+### Authentication
 
-```bash
-npm install
-```
+Users can register and log in to access the dashboard securely using JSON Web Tokens (JWT). The system has two user roles:
 
-3. Create a .env file in the root directory and configure the following environment variables: 
+- **Buyer:** Can search for products, view available inventory, and make maintenance and servicing requests.
+- **Seller:** Has additional permissions related to managing inventory and sales, including adding new products, updating existing product details, managing sales, and accepting maintenance requests.
 
-```bash
-VITE_REACT_APP_CLOUDINARY_CLOUD_NAME=<your_cloudinary_cloud_name>
-VITE_REACT_APP_CLOUDINARY_API_KEY=<your_Cloudinary_api_key>
-VITE_REACT_APP_CLOUDINARY_API_SECRET=<your_Cloudinary_api_secret>
-VITE_REACT_APP_CLOUDINARY_UPLOAD_PRESET=<your_Cloudinary_upload_secret>
-```
-admin gmail:admin@gmail.com
-admin password : admin123
+### Bike Management
 
-NB: If you want to change API_BASE_URL please go to redux folder > api > baseApi.ts then You can Change it.
+#### CRUD Operations
 
-4. Start the Client:
+- Add new bikes to the inventory.
+- Delete existing bikes from the inventory.
+- Update bike details.
+- View the list of bikes in the inventory.
 
-```bash
- npm run dev
-```
+#### Filtering System
 
-5. The API will be available at
+- Robust filtering system for effective bike selection.
+- Filtering options include price range, release date, brand, model, type, size, color, and additional relevant parameters.
 
-```bash
-http://localhost:5173
-```
+### Maintenance and Servicing
+
+- Dedicated section for maintaining detailed records of each bike's maintenance history.
+- Record date of the last servicing, next scheduled servicing date, service details (e.g., oil change, brake check, tire replacement), and any additional notes.
+- Apply discounts for bike servicing based on previous servicing records.
+
+### Sales Management
+
+#### Selling Products
+
+- Users can search for a product to sell.
+- Upon finding the product, users can click the "Sell" button.
+- Sale form includes quantity, buyer name, and sale date.
+- If the quantity reaches zero, the product is automatically removed from the inventory.
+
+#### Sales History
+
+- View sales history categorized by weekly, daily, monthly, and yearly periods.
+
+### Bike Filtering
+
+Implement a comprehensive bike filter system to optimize inventory management. The filter options cater specifically to bikes and cycling:
+
+- Filter by Price: Allow users to set a price range for bikes.
+- Filter by Release Date: Provide options for filtering bikes based on their release or production date.
+- Filter by Brand: Implement real-time search functionality for bike brands.
+- Filter by Model: Enable searching by bike model for unique identification.
+- Filter by Type: Categorize bikes into types (e.g., road, mountain, hybrid).
+- Filter by Size: Include a filter for bike sizes.
+- Filter by Color: Allow filtering bikes based on their color.
+- Additional Relevant Filter Parameters: Introduce other relevant filter parameters such as frame material, suspension type, or any custom attributes associated with the bikes.
+
+### User Interface Features
+
+- Gracefully update the UI in real-time when changes occur (e.g., product updates, sales, etc.).
+- Utilize RTK Query for efficient CRUD operations.
+- Implement Re-fetching functionality to ensure data accuracy and consistency.
+- Mobile-responsive design for a seamless user experience on various devices.
+
+### State Management
+
+- Utilize Redux for maintaining a consistent application state.
+
+### Invoice Printing
+
+- Integrate a feature allowing users to generate and print invoices for sales transactions.
+- The invoice should include details such as bike name, quantity, price, date of the sale, total amount, and any additional relevant information.
+
+### Bulk Delete Product Options
+
+- Enable users to efficiently manage their inventory by implementing a bulk delete feature.
+- Provide a user-friendly interface to select and delete multiple products simultaneously.
+
+### Duplicate & Edit Feature
+
+- Implement a "Duplicate & Edit" feature allowing users to create variants by duplicating and editing existing products.
+
+## Technical Requirements
+
+- Uses RTK Query for efficient CRUD operations.
+- Implements Redux for state management.
+- Real-time UI updates with graceful handling.
+- Re-fetching functionality for data accuracy.
+- Mobile-responsive design.
+- Over 10 commits in the GitHub repository.
+- Manual code writing without AI tools or libraries.
+- Modular pattern recommended for enhanced code organization.
+
+## Getting Started
+
+1. Clone the repository.
+2. Install dependencies.
+3. Set up the backend (if applicable).
+4. Run the application.
+
+## Contribution Guidelines
+
+1. Fork the repository.
+2. Create a new branch.
+3. Make changes and commit.
+4. Push changes to the branch.
+5. Create a pull request.
+
+Feel free to explore the Bike Management System and contribute to its development!
+
+---
+
+## More Projects and Information
+
+Explore additional projects and find out more about my work on my portfolio website: [Portfolio Mobassher](https://mobassher.vercel.app).

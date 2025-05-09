@@ -80,7 +80,7 @@ const Login = () => {
             <input
               type="email"
               placeholder="Email"
-              className="p-2 mt-2 w-full outline-none rounded-md border border-gray-300 "
+              className="p-2 mt-2 w-full outline-none rounded-md border border-gray-300"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -91,26 +91,45 @@ const Login = () => {
               type="password"
               name="password"
               placeholder="Your Password"
-              className="p-2 mt-2 w-full outline-none rounded-md border border-gray-300 "
+              className="p-2 mt-2 w-full outline-none rounded-md border border-gray-300"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           {errorMessage && <p className="text-red-500">{errorMessage}</p>}
           <Toaster richColors position="top-right" closeButton />
-          <div className="flex justify-between mt-7">
+
+          <Button
+            className="bg-green-500 hover:bg-green-400 w-full mt-2"
+            type="submit"
+            onClick={handleLogin}
+          >
+            Login
+          </Button>
+
+          {/* New Autofill Buttons */}
+          <div className="flex justify-between mt-4 gap-2">
             <Button
-              className="bg-green-500 hover:bg-green-400"
-              onClick={() => setIsModalOpen(true)}
+              className="w-full bg-blue-500 hover:bg-blue-400"
+              type="button"
+              onClick={() => {
+                setEmail("buyer@gmail.com");
+                setPassword("12345678");
+                setErrorMessage("");
+              }}
             >
-              Demo Credential
+              Login as Buyer
             </Button>
             <Button
-              className="bg-green-500 hover:bg-green-400"
-              type="submit"
-              onClick={handleLogin}
+              className="w-full bg-orange-500 hover:bg-orange-400"
+              type="button"
+              onClick={() => {
+                setEmail("seller@gmail.com");
+                setPassword("12345678");
+                setErrorMessage("");
+              }}
             >
-              Login
+              Login as Seller
             </Button>
           </div>
         </CardContent>

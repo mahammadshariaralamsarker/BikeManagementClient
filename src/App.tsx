@@ -1,10 +1,14 @@
-
+import { Toaster } from "sonner";
+import MainLayout from "./components/layouts/MainLayout";
+import ProtectedRoute from "./components/layouts/ProtectedRoute";
 
 function App() {
-
   return (
-  <h3 className='text-3xl '>Hello World</h3>
-  )
+    <ProtectedRoute role={undefined}>
+      <Toaster />
+      <MainLayout />
+    </ProtectedRoute>
+  );
 }
 
-export default App
+export default App;

@@ -1,15 +1,15 @@
-import Testimonial from "../../components/Home/Testimonial";
-import Features from "./Features";
-import { HomeSlider } from "./HomeSlider";
+ 
+ 
+import Navbar from '@/components/layouts/Navbar'
+import {  Outlet } from 'react-router-dom' 
+import FooterPage from '../footer/footer'
 
-const Home = () => {
+export default function Home() {
   return (
-    <div>
-      <HomeSlider />
-      <Features />
-      <Testimonial />
+    <div className="min-h-screen bg-gray-50 w-[90%] mx-auto">
+      <Navbar/> 
+      <Outlet/>
+      <FooterPage/>
     </div>
-  );
-};
-
-export default Home;
+  )}
+ 

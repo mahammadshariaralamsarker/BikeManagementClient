@@ -1,108 +1,237 @@
 import { createBrowserRouter } from "react-router-dom";
-import MainLayouts from "../components/Layouts/MainLayouts";
-import Login from "../pages/Auth/Login";
-import Signup from "../pages/Auth/Signup";
-import Home from "../pages/Home/Home"; 
-import About from "../pages/About/About";
-import DashboardLayout from "../components/Layouts/DashboardLayout";
-import Profile from "../pages/Dashboard/Profile/Profile";
-import UserManage from "../pages/Dashboard/Admin/UserManage/UserManage";
-import ProductManage from "../pages/Dashboard/Admin/ManageProduct/ManageProduct";
-import OrderManage from "../pages/Dashboard/Admin/ManageOrder/ManageOrder";
-import MyOrders from "../pages/Dashboard/User/MyOrders/MyOrders";
-import Checkout from "../pages/Checkout/Checkout";
-import ProtecttedRoute from "../components/Layouts/ProtecttedRoute";
-import Bikes from "../pages/Bicycles/Bicycles";
-import BikeDetails from "../pages/BiCycleDetails/BiCycleDetails";
+import App from "../App";
+import Login from "@/pages/Login";
+import Register from "@/pages/Register";
+import BikeDetails from "@/pages/buyer/BikeManagement/BikeDetails";
+import LandingPage from "@/pages/landingPage/landingPage";
+import SellerDashboard from "@/pages/seller/SellerDashboard";
+import AllBikes from "@/pages/seller/bikeManagement/AllBikes";
+import AddBike from "@/pages/seller/bikeManagement/AddBike";
+import BulkDeleteBike from "@/pages/seller/bikeManagement/BulkDeleteBike";
+import UpdateBike from "@/pages/seller/bikeManagement/UpdateBike";
+import DuplicateBike from "@/pages/seller/bikeManagement/DuplicateBike";
+import BuyerDashboard from "@/pages/buyer/BuyerDashboard";
+import RequestedMaintenance from "@/pages/buyer/BikeManagement/RequestedMaintenance";
+import RequestMaintenance from "@/pages/buyer/BikeManagement/RequestMaintenance";
+import SalesHistory from "@/pages/seller/salesManagement/SalesHistory";
+import GetInvoice from "@/pages/seller/salesManagement/GetInvoice";
+import AcceptMaintenance from "@/pages/seller/maintenanceManagement/AcceptMaintenance";
+import Accessories from "@/pages/Accessories";
+import Home from "@/pages/Home/home";
+import ContactUsPage from "@/pages/contact/Contact";
 
-const route = createBrowserRouter([
+// Role-based route configurations
+const sellerRoutes = [
+  {
+    index: true,
+    element: <SellerDashboard />,
+  },
+  {
+    path: "all-bikes",
+    element: <AllBikes />,
+  },
+  {
+    path: "add-bike",
+    element: <AddBike />,
+  },
+  {
+    path: "bulk-delete-bike",
+    element: <BulkDeleteBike />,
+  },
+  {
+    path: "update-bike/:id",
+    element: <UpdateBike />,
+  },
+  {
+    path: "duplicate-bike/:id",
+    element: <DuplicateBike />,
+  },
+  {
+    path: "sales-history",
+    element: <SalesHistory />,
+  },
+  {
+    path: "get-invoice/:id",
+    element: <GetInvoice />,
+  },
+  {
+    path: "maintenance",
+    element: <AcceptMaintenance />,
+  },
+];
+
+const buyerRoutes = [
+  {
+    index: true,
+    element: <BuyerDashboard />,
+  },
+  {
+    path: "requested-maintenance",
+    element: <RequestedMaintenance />,
+  },
+  {
+    path: "request-maintenance/:id",
+    element: <RequestMaintenance />,
+  },
+  {
+    path: "bikes/:id",
+    element: <BikeDetails />,
+  },
+];
+
+const publicRoutes = [
   {
     path: "/",
-    element: <MainLayouts />,
+    element: <Home />,
     children: [
       {
-        path: "/",
-        element: <Home />,
+        index: true,
+        element: <LandingPage />,
       },
       {
-        path: "/Bikes",
-        element: <Bikes />,
+        path: "accessories",
+        element: <Accessories />,
       },
       {
-        path: "/Bike/:id",
+        path: "contact",
+        element: <ContactUsPage />,
+      },
+      {
+        path: "bike/:id",
         element: <BikeDetails />,
       },
-      {
-        path: "/about",
-        element: <About />,
-      },
-      {
-        path: "/checkout",
-        element: (
-          <ProtecttedRoute role="customer">
-            <Checkout />
-          </ProtecttedRoute>
-        ),
-      },
     ],
   },
-  {
-    path: "/dashboard",
-    element: <DashboardLayout />,
-    children: [
-      // User
-      {
-        path: "my-orders",
-        element: (
-          <ProtecttedRoute role="customer">
-            <MyOrders />
-          </ProtecttedRoute>
-        ),
-      },
 
-      {
-        path: "profile",
-        element: (
-          <ProtecttedRoute role="customer">
-            <Profile />
-          </ProtecttedRoute>
-        ),
-      },
-
-      {
-        path: "user-manage",
-        element: (
-          <ProtecttedRoute role="admin">
-            <UserManage />
-          </ProtecttedRoute>
-        ),
-      },
-      {
-        path: "product-manage",
-        element: (
-          <ProtecttedRoute role="admin">
-            <ProductManage />
-          </ProtecttedRoute>
-        ),
-      },
-      {
-        path: "order-manage",
-        element: (
-          <ProtecttedRoute role="admin">
-            <OrderManage />
-          </ProtecttedRoute>
-        ),
-      },
-    ],
-  },
   {
     path: "/login",
     element: <Login />,
   },
   {
-    path: "/sign-up",
-    element: <Signup />,
+    path: "/register",
+    element: <Register />,
+  },
+];
+
+// Combined router configuration
+const router = createBrowserRouter([
+  ...publicRoutes,
+  {
+    path: "seller/dashboard",
+    element: <App />,
+    children: sellerRoutes,
+  },
+  {
+    path: "buyer/dashboard",
+    element: <App />,
+    children: buyerRoutes,
   },
 ]);
 
-export default route;
+export default router;
+
+// import { createBrowserRouter } from "react-router-dom";
+// import App from "../App";
+// import Login from "@/pages/Login";
+// import Register from "@/pages/Register";
+// import BikeDetails from "@/pages/buyer/BikeManagement/BikeDetails";
+// import LandingPage from "@/pages/landingPage/landingPage";
+// import SellerDashboard from "@/pages/seller/SellerDashboard";
+// import AllBikes from "@/pages/seller/bikeManagement/AllBikes";
+// import AddBike from "@/pages/seller/bikeManagement/AddBike";
+// import BulkDeleteBike from "@/pages/seller/bikeManagement/BulkDeleteBike";
+// import UpdateBike from "@/pages/seller/bikeManagement/UpdateBike";
+// import DuplicateBike from "@/pages/seller/bikeManagement/DuplicateBike";
+// import BuyerDashboard from "@/pages/buyer/BuyerDashboard";
+// import RequestedMaintenance from "@/pages/buyer/BikeManagement/RequestedMaintenance";
+// import RequestMaintenance from "@/pages/buyer/BikeManagement/RequestMaintenance";
+// import SalesHistory from "@/pages/seller/salesManagement/SalesHistory";
+// import GetInvoice from "@/pages/seller/salesManagement/GetInvoice";
+// import AcceptMaintenance from "@/pages/seller/maintenanceManagement/AcceptMaintenance";
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <LandingPage />,
+//     children: [
+
+//       {
+//         path: "/bike/:id",
+//         element: <BikeDetails />,
+//       },
+//     ],
+//   },
+//   {
+//     path: "dashboard",
+//     element: <App />,
+//     children: [
+//       {
+//         index: true,
+//         element: <SellerDashboard />,
+//       },
+//       {
+//         path: "all-bikes",
+//         element: <AllBikes />,
+//       },
+//       {
+//         path: "add-bike",
+//         element: <AddBike />,
+//       },
+//       {
+//         path: "bulk-delete-bike",
+//         element: <BulkDeleteBike />,
+//       },
+//       {
+//         path: "update-bike/:id",
+//         element: <UpdateBike />,
+//       },
+//       {
+//         path: "duplicate-bike/:id",
+//         element: <DuplicateBike />,
+//       },
+//       {
+//         path: "sales-history",
+//         element: <SalesHistory />,
+//       },
+//       {
+//         path: "get-invoice/:id",
+//         element: <GetInvoice />,
+//       },
+//       {
+//         path: "maintenance",
+//         element: <AcceptMaintenance />,
+//       },
+//     ],
+//   },
+//   {
+//     path: "dashboard",
+//     element: <App />,
+//     children: [
+//       {
+//         index: true,
+//         element: <BuyerDashboard />,
+//       },
+//       {
+//         path: "requested-maintenance",
+//         element: <RequestedMaintenance />,
+//       },
+//       {
+//         path: "request-maintenance/:id",
+//         element: <RequestMaintenance />,
+//       },
+//       {
+//         path: "bikes/:id",
+//         element: <BikeDetails />,
+//       },
+//     ],
+//   },
+//   {
+//     path: "/login",
+//     element: <Login />,
+//   },
+//   {
+//     path: "/register",
+//     element: <Register />,
+//   },
+// ]);
+
+// export default router;

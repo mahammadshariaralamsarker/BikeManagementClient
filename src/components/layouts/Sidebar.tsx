@@ -34,7 +34,7 @@ const Sidebar = () => {
 
   return (
     <Sider
-      className="fixed top-0 left-0 h-screen w-[250px] bg-white z-50 shadow-md"
+      className="fixed top-0 left-0  h-screen w-[250px] bg-white z-50 shadow-md "
       width={250} // explicitly set width to prevent responsive collapse
     >
       <div className="flex justify-center items-center py-4 mt-1 border-b border-gray-200">

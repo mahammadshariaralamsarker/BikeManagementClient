@@ -10,9 +10,9 @@ const FooterPage = () => {
                 Guides
               </h3>
               <ul className="space-y-2">
-                <li><Link to="/guides/basic" className="text-gray-600 hover:text-blue-600">Basic Maintenance</Link></li>
-                <li><Link to="/guides/intermediate" className="text-gray-600 hover:text-blue-600">Intermediate</Link></li>
-                <li><Link to="/guides/advanced" className="text-gray-600 hover:text-blue-600">Advanced Repairs</Link></li>
+                <li><Link to="#" className="text-gray-600 hover:text-blue-600">Basic Maintenance</Link></li>
+                <li><Link to="#" className="text-gray-600 hover:text-blue-600">Intermediate</Link></li>
+                <li><Link to="#" className="text-gray-600 hover:text-blue-600">Advanced Repairs</Link></li>
               </ul>
             </div>
             <div>
@@ -20,9 +20,9 @@ const FooterPage = () => {
                 Resources
               </h3>
               <ul className="space-y-2">
-                <li><Link to="/tools" className="text-gray-600 hover:text-blue-600">Tools</Link></li>
-                <li><Link to="/schedule" className="text-gray-600 hover:text-blue-600">Maintenance Schedule</Link></li>
-                <li><Link to="/troubleshooting" className="text-gray-600 hover:text-blue-600">Troubleshooting</Link></li>
+                <li><Link to="#" className="text-gray-600 hover:text-blue-600">Tools</Link></li>
+                <li><Link to="#" className="text-gray-600 hover:text-blue-600">Maintenance Schedule</Link></li>
+                <li><Link to="#" className="text-gray-600 hover:text-blue-600">Troubleshooting</Link></li>
               </ul>
             </div>
             <div>
@@ -30,8 +30,8 @@ const FooterPage = () => {
                 Company
               </h3>
               <ul className="space-y-2">
-                <li><Link to="/about" className="text-gray-600 hover:text-blue-600">About</Link></li>
-                <li><Link to="/blog" className="text-gray-600 hover:text-blue-600">Blog</Link></li>
+                <li><Link to="#" className="text-gray-600 hover:text-blue-600">About</Link></li>
+                <li><Link to="#" className="text-gray-600 hover:text-blue-600">Blog</Link></li>
                 <li><Link to="/contact" className="text-gray-600 hover:text-blue-600">Contact</Link></li>
               </ul>
             </div>

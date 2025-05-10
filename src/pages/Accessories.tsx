@@ -1,9 +1,7 @@
 import { 
   Card, 
   Row, 
-  Col, 
-  Input, 
-  Select, 
+  Col,  
   Button, 
   Tag, 
   Typography, 
@@ -12,23 +10,19 @@ import {
   Badge,
   Space 
 } from 'antd';
-import { 
-  SearchOutlined, 
+import {  
   ShoppingCartOutlined, 
-  HeartOutlined,
-  FilterOutlined,
+  HeartOutlined, 
   StarFilled 
 } from '@ant-design/icons';
 
-const { Title, Text } = Typography;
-const { Search } = Input;
-const { Option } = Select;
+const { Title, Text } = Typography; 
 
 const accessoriesData = [
   {
     id: 1,
     name: "Premium Helmet",
-    image: "https://images.unsplash.com/photo-1588773846150-8a6dd941311f",
+    image: "https://images.unsplash.com/photo-1611004061856-ccc3cbe944b2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGVsbWV0fGVufDB8fDB8fHww",
     price: 249.99,
     category: "Safety",
     rating: 4.9,
@@ -38,7 +32,7 @@ const accessoriesData = [
   {
     id: 2,
     name: "Leather Riding Gloves",
-    image: "https://images.unsplash.com/photo-1604176354204-92660c5d9fb0",
+    image: "https://plus.unsplash.com/premium_photo-1663036897318-f09b2dd5a368?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UmlkaW5nJTIwR2xvdmVzfGVufDB8fDB8fHww",
     price: 89.99,
     category: "Apparel",
     rating: 4.7,
@@ -48,7 +42,7 @@ const accessoriesData = [
   {
     id: 3,
     name: "Motorcycle Cover",
-    image: "https://images.unsplash.com/photo-1621372273683-fb5c7e8a4d9e",
+    image: "https://media.istockphoto.com/id/154967310/photo/bike-cover.webp?a=1&b=1&s=612x612&w=0&k=20&c=ZJq6kxiqk8nH9lcfM9plim8mJGpBbIA2DrHztg47uA0=",
     price: 59.99,
     category: "Protection",
     rating: 4.5,
@@ -67,8 +61,8 @@ const accessoriesData = [
   },
   {
     id: 5,
-    name: "Tank Bag",
-    image: "https://images.unsplash.com/photo-1593764592116-bfb2a97c642a",
+    name: " Shoes",
+    image: "https://img.freepik.com/premium-photo/pair-ski-boots-with-number-3-them_1077802-136420.jpg?ga=GA1.1.330648536.1746364366&semt=ais_hybrid&w=740",
     price: 79.99,
     category: "Storage",
     rating: 4.6,
@@ -77,8 +71,8 @@ const accessoriesData = [
   },
   {
     id: 6,
-    name: "Exhaust Pipe",
-    image: "https://images.unsplash.com/photo-1601758003122-53c40e686a19",
+    name: "Jacket",
+    image: "https://img.freepik.com/free-psd/classic-black-leather-jacket-timeless-fashion-staple_191095-78120.jpg?ga=GA1.1.330648536.1746364366&semt=ais_hybrid&w=740",
     price: 349.99,
     category: "Performance",
     rating: 4.9,
@@ -95,44 +89,7 @@ const Accessories = () => {
         Premium gear and parts for your ride
       </Text>
 
-      {/* Search and Filter Section */}
-      <Card style={{ marginBottom: 24 }}>
-        <Space size="large" style={{ width: '100%' }}>
-          <Search
-            placeholder="Search accessories..."
-            allowClear
-            enterButton={<SearchOutlined />}
-            size="large"
-            style={{ width: 400 }}
-          />
-          
-          <Select
-            placeholder="Category"
-            style={{ width: 180 }}
-            suffixIcon={<FilterOutlined />}
-          >
-            <Option value="all">All Categories</Option>
-            <Option value="Safety">Safety</Option>
-            <Option value="Apparel">Apparel</Option>
-            <Option value="Protection">Protection</Option>
-            <Option value="Lighting">Lighting</Option>
-            <Option value="Storage">Storage</Option>
-            <Option value="Performance">Performance</Option>
-          </Select>
-
-          <Select
-            placeholder="Price Range"
-            style={{ width: 180 }}
-            suffixIcon={<FilterOutlined />}
-          >
-            <Option value="all">All Prices</Option>
-            <Option value="0-50">$0 - $50</Option>
-            <Option value="50-100">$50 - $100</Option>
-            <Option value="100-200">$100 - $200</Option>
-            <Option value="200+">$200+</Option>
-          </Select>
-        </Space>
-      </Card>
+     
 
       {/* Accessories Grid */}
       <Row gutter={[24, 24]}>
@@ -156,7 +113,7 @@ const Accessories = () => {
                 }
                 actions={[
                   <Button type="text" icon={<HeartOutlined />} />,
-                  <Button type="primary" icon={<ShoppingCartOutlined />}>Add to Cart</Button>
+                  <Button type="primary" style={{ backgroundColor: '#1890ff',padding:'6px', borderColor: '#1890ff' }} icon={<ShoppingCartOutlined />}>Add to Cart</Button>
                 ]}
               >
                 <div style={{ marginBottom: 12 }}>
